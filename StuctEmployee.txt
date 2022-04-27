@@ -1,0 +1,48 @@
+//	Pointer to one structure variable //
+
+#include<stdio.h>
+#include<stdlib.h>
+typedef struct employee
+{
+	char n[20];
+	int id;
+	double salary;
+	
+}emp;
+void StoreEMP(emp*, int);
+void PrintEMP(emp*,int);
+void main()
+{
+	emp* ptr;
+	int n;
+	printf("\nEnter Size of malloc : ");
+	scanf("%d",&n);
+	ptr=(emp*)malloc(n*sizeof(emp));
+	StoreEMP(ptr,n);
+	PrintEMP(ptr,n);
+}
+void StoreEMP(emp* ptr,int n)
+{	int i;
+
+	printf("\n-----------------------------Store Data-----------------------------\n");
+	for(i=0;i<n;i++)
+	{
+	printf("\nEnter Name Of Employee : ");
+	scanf("%s",&ptr[i].n);
+	printf("\nEnter ID Of Employee : ");
+	scanf("%d",&ptr[i].id);
+	printf("\nEnter Salary Of Employee : ");
+	scanf("%lf",&ptr[i].salary);
+	}
+}
+void PrintEMP(emp* ptr,int n)
+{	int i;
+
+	printf("\n-----------------------------Employee Data-----------------------------\n");
+	for(i=0;i<n;i++)
+	{
+	printf("\nName Of Employee : %s \n",ptr[i].n);
+	printf("ID Of Employee : %d\n",ptr[i].id);
+	printf("Salary Of Employee : %lf\n",ptr[i].salary);
+	}
+}
